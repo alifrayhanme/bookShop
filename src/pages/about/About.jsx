@@ -1,6 +1,6 @@
 import React from "react";
 import { Link } from "react-router";
-import scrollUp from "../../../../storyNest/src/utility/scrollUp";
+import { scrollUp } from "../../context/BooksContext";
 
 const About = () => {
   scrollUp();
