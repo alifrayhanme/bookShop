@@ -1,9 +1,9 @@
 import React from "react";
 import { Link } from "react-router";
-import { scrollUp } from "../../context/BooksContext";
+
+
 
 const About = () => {
-  scrollUp();
   return (
     <section className="mt-[82px] md:mt-[98px] pt-28 pb-16 px-4 sm:px-8 lg:px-20 bg-white text-green-950">
       <div className="max-w-5xl mx-auto text-center">
