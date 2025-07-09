@@ -13,7 +13,7 @@ const useBookFilter = () => {
     );
     setSearchResults(filtered);
     setSearchValue("");
-    scrollUp()
+    scrollUp();
   };
 
   const handelBestSeller = () => {
@@ -33,8 +33,10 @@ const useBookFilter = () => {
     setSearchResults(filtered);
   };
 
+
   const sortByPrice = (order) => {
     const sorted = [...searchResults].sort((a, b) => {
+      if (order === "default") return a.id - b.id;
       if (order === "low-to-high") return a.price - b.price;
       if (order === "high-to-low") return b.price - a.price;
       return 0;
@@ -42,22 +44,19 @@ const useBookFilter = () => {
     setSearchResults(sorted);
   };
 
-
-
+  
   const resetSearch = () => {
     setSearchResults(Books);
     setSearchValue("");
-    scrollUp()
+    scrollUp();
   };
 
-
   function scrollUp() {
-  window.scrollTo({
-    top: 0,
-    behavior: "smooth",
-  });
-}
-
+    window.scrollTo({
+      top: 0,
+      behavior: "smooth",
+    });
+  }
 
   return {
     searchValue,

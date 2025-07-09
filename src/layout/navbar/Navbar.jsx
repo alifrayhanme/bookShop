@@ -6,13 +6,14 @@ import Logo from "./Logo";
 import MobileMenuButton from "./MobileMenuButton";
 import useOutsideClick from "../../hook/useOutsideClick";
 
-
-
 const Navbar = () => {
   const [showNav, setShowNav] = useState(false);
   const buttonRef = useRef();
-  const inputRef = useRef();
-  useOutsideClick([buttonRef, inputRef], () => setShowNav(false));
+  const desktopInputRef = useRef();
+  const mobileInputRef = useRef();
+  useOutsideClick([buttonRef, desktopInputRef, mobileInputRef], () =>
+    setShowNav(false)
+  );
 
   return (
     <>
@@ -20,7 +21,7 @@ const Navbar = () => {
         <Logo />
 
         <div className="hidden md:flex justify-between items-center gap-5">
-          <SearchBox />
+          <SearchBox ref={desktopInputRef} />
           <NavLink />
         </div>
 
@@ -33,13 +34,12 @@ const Navbar = () => {
         </div>
 
         {showNav && (
-          <div className="md:hidden flex flex-col justify-start absolute top-[80px] right-0 left-0 px-5 z-50 transition duration-500 ease-in-out space-y-4 bg-green-50">
+          <div className="md:hidden flex flex-col justify-start absolute top-[80px] right-0 left-0 px-5 pb-4 z-50 transition duration-500 ease-in-out space-y-4 bg-green-50">
             <NavLink dynamicStyle="flex-col" toCart="cart" />
-            <SearchBox ref={inputRef} />
+            <SearchBox ref={mobileInputRef} />
           </div>
         )}
       </div>
-
     </>
   );
 };

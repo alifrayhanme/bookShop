@@ -7,7 +7,6 @@ const BooksContext = createContext(null);
 export const BooksContextProvider = ({ children }) => {
   const filterBooks = useBookFilter();
   const cartHandler = useCartHandler();
-  console.log(cartHandler);
   
   const contextValue = {
     ...filterBooks,
